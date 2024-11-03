@@ -1,19 +1,21 @@
-function hola(){
-
-}
-
-var alertPlaceholder = document.getElementById('liveAlertPlaceholder')
-var alertTrigger = document.getElementById('liveAlertBtn')
-
-function alert(message, type) {
-  var wrapper = document.createElement('div')
-  wrapper.innerHTML = '<div class="alert alert-' + type + ' alert-dismissible" role="alert">' + message + '<button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button></div>'
-
-  alertPlaceholder.append(wrapper)
-}
-
-if (alertTrigger) {
-  alertTrigger.addEventListener('click', function () {
-    alert('Genial, activaste este mensaje de alerta.', 'success')
-  })
-}
+document.addEventListener('DOMContentLoaded', function() {
+    // Manejar el formulario de inicio de sesión
+    const formLogin = document.querySelector('.login-form form');
+    formLogin.addEventListener('submit', function(event) {
+      event.preventDefault();
+      event.stopPropagation();
+  
+      const emailOrUsername = document.querySelector('#email').value;
+      const password = document.querySelector('#pass').value;
+  
+      console.log('Formulario de inicio de sesión enviado:', { emailOrUsername, password });
+  
+      const loginExitoso = window.iniciarSesion(emailOrUsername, password);
+      if (loginExitoso) {
+        console.log('Inicio de sesión exitoso:', { emailOrUsername });
+        formLogin.reset();
+      } else {
+        console.log('Error en el inicio de sesión.');
+      }
+    }, false);
+  });

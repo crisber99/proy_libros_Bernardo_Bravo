@@ -1,0 +1,28 @@
+[
+    {
+        "text": "Home",
+        "href": "#"
+    },
+    {
+        "text": "About",
+        "href": "#",
+        "children": [
+            {
+                "text": "Team",
+                "href": "#"
+            },
+            {
+                "text": "Contact",
+                "href": "#"
+            }
+        ]
+    },
+    {
+        "text": "Services",
+        "href": "#"
+    },
+    {
+        "text": "Blog",
+        "href": "#"
+    }
+]
