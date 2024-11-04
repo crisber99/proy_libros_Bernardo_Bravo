@@ -1,12 +1,12 @@
 document.addEventListener('DOMContentLoaded', function () {
 
 
-    const menuData = tipoMenu(3);
+    const menuData = tipoMenu(1);
 
     function tipoMenu(rol){
         var arregloMenu;
         switch(rol){
-            case 1:
+            case 1://administrador
                 arregloMenu = [
                     {
                         "text": "Inicio",
@@ -25,52 +25,12 @@ document.addEventListener('DOMContentLoaded', function () {
                         "href": "Registro.html"
                     },
                     {
-                        "text": "Mantenedor",
-                        "href": "Mantenedor.html"
+                        "text": "Admin. Roles",
+                        "href": "Roles.html"
                     }
                 ];
                 break;
-            case 2:
-                arregloMenu = [
-                    {
-                        "text": "Inicio",
-                        "href": "Index.html"
-                    },
-                    {
-                        "text": "Quienes Somos",
-                        "href": "QuienesSomos.html",
-                    },
-                    {
-                        "text": "Catálogo",
-                        "href": "Catalogo.html"
-                    },
-                    {
-                        "text": "Registro",
-                        "href": "Registro.html"
-                    }
-                ];
-                break;
-            case 3:
-                arregloMenu = [
-                    {
-                        "text": "Inicio",
-                        "href": "Index.html"
-                    },
-                    {
-                        "text": "Quienes Somos",
-                        "href": "QuienesSomos.html",
-                    },
-                    {
-                        "text": "Catálogo",
-                        "href": "Catalogo.html"
-                    },
-                    {
-                        "text": "Registro",
-                        "href": "Registro.html"
-                    }
-                ];
-                break;
-            case 4:
+            default://los demás roles
                 arregloMenu = [
                     {
                         "text": "Inicio",

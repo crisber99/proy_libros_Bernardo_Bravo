@@ -2,20 +2,7 @@ document.addEventListener('DOMContentLoaded', function() {
     // Manejar el formulario de registro
     const formRegister = document.querySelector('.needs-validation');
 
-//     Array.from(formRegister).forEach(form => {
-//         form.addEventListener('submit', event => {
-//           if (!form.checkValidity()) {
-//             event.preventDefault()
-//             event.stopPropagation()
-//           }
-//           form.classList.add('was-validated')
-//     }, false)
-// })
-
-
     formRegister.addEventListener('submit', function(event) {
-      event.preventDefault();
-      event.stopPropagation();
   
       const email = document.querySelector('#email').value;
       const name = document.querySelector('#nombres').value;
@@ -32,7 +19,16 @@ document.addEventListener('DOMContentLoaded', function() {
       const isValid = formRegister.checkValidity();
       formRegister.classList.add('was-validated');
   
+      event.preventDefault();
+        event.stopPropagation();
+        
       if (!isValid) {
+        
+        return;
+      }
+
+      if(name ==""){
+        window.mostrarAlerta("Debe ingresar su nombre.","danger");
         return;
       }
   

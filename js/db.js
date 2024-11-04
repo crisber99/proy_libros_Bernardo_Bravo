@@ -19,6 +19,25 @@ document.addEventListener('DOMContentLoaded', function() {
       console.log('Usuario registrado exitosamente:', nuevoUsuario);
       return true;
     }
+
+    const roles = JSON.parse(localStorage.getItem('roles')) || [];
+    // Función para registrar nuevo rol
+    function registrarRol(codigo, nombreRol) {
+      console.log('Intentando registrar un rol:', { codigo, nombreRol });
+      const rolExistente = roles.find(rol => rol.codigo === codigo);
+      if (rolExistente) {
+        mostrarAlerta('El rol ya existe.', 'danger');
+        console.log('El rol ya existe.');
+        return false;
+      }
+  
+      const nuevoRol = { codigo, nombreRol };
+      roles.push(nuevoRol);
+      localStorage.setItem('roles', JSON.stringify(roles));
+      mostrarAlerta('Rol registrado exitosamente.', 'success');
+      console.log('Rol registrado exitosamente:', nuevoRol);
+      return true;
+    }
   
     // Función para iniciar sesión
     function iniciarSesion(emailOrusuario, pass) {
@@ -62,5 +81,7 @@ document.addEventListener('DOMContentLoaded', function() {
     // Exportar funciones
     window.registrarUsuario = registrarUsuario;
     window.iniciarSesion = iniciarSesion;
+    window.mostrarAlerta = mostrarAlerta;
+    window.registrarRol = registrarRol;
   });
   
